@@ -1,16 +1,13 @@
-import express from "express";
-import {config} from "dotenv";
-config();
+import app from "./app.js";
+import { connectToDatabase } from "./db/connection.js";
 
-const app = express();
-
-//GET -
-//PUT -
-//POST -
-//DELETE -
-
-//middlewares
-app.use(express.json());
+//connections and listeners
+const PORT = process.env.PORT || 3000;
+connectToDatabase().then(() => {
+  app.listen(PORT, () => {
+    console.log("local host running and connected to Database 🤘!");
+  });
+}).catch(err => console.log(err));
 
 // app.get("/", (req,res, next) => {
 //   return res.send("Hello!");
@@ -29,7 +26,3 @@ app.use(express.json());
 //   return res.send("Hello! " + req.params.id);
 // });
 
-//connections and listeners
-app.listen(3000, () => {
-  console.log("local host running!");
-});
