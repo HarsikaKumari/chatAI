@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 
 type props = {
@@ -11,7 +10,7 @@ type props = {
 
 function NavigationLink(props: props) {
   return (
-    <Link
+    <Link className="nav-link"
       to={props.to}
       style={{ background: props.bg, color: props.textColor }}
     >
