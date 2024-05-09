@@ -1,5 +1,6 @@
-import { Box, Typography } from "@mui/material";
-import React from "react";
+import { IoIosLogIn } from "react-icons/io";
+import { Box, Button, Typography } from "@mui/material";
+import CustomizedInput from "../components/shared/CustomizedInput";
 
 function Login() {
   return (
@@ -36,7 +37,31 @@ function Login() {
               textAlign="center"
               padding={2}
               fontWeight={600}
-            > Login </Typography>
+            >
+              {" "}
+              Login{" "}
+            </Typography>
+
+            <CustomizedInput type="email" name="email" label="email" />
+            <CustomizedInput type="password" name="password" label="password" />
+            <Button
+              type="submit"
+              sx={{
+                px: 2,
+                py: 1,
+                mt: 2,
+                width: "400px",
+                borderRadius: 2,
+                bgcolor: "#00fffc",
+                ":hover": {
+                  bgcolor: "white",
+                  color: "black",
+                },
+              }}
+              endIcon={<IoIosLogIn />}
+            >
+              Login
+            </Button>
           </Box>
         </form>
       </Box>
